@@ -1,0 +1,69 @@
+[
+    {
+        "?": "Check if route is alive",
+        "type": [
+            "request"
+        ],
+ 
+        "orderId": {
+            "?": "ID of this transaction",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "orderToken": {
+            "?": "Secure token of this transaction",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+
+        "depositAddress": {
+            "?": "Address that received the bridged amount",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        }
+    },
+    {
+        "?": "The answer you are looking for",
+        "type": [
+            "response"
+        ],
+        "code": {
+            "?": "Alive status",
+            "type": "number",
+            "required": true
+        },
+        "secondsLeft": {
+            "?": "Seconds left before expiration",
+            "type": "number",
+            "required": true
+        },
+        "desc": {
+            "?": "A description of the status",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false
+            }
+        },
+        "error": {
+            "?": "An error. Empty = no error",
+            "type": "string",
+            "required": false,
+            "sanitize": {
+                "html": false
+            }
+        }
+    }
+]

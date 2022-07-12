@@ -1,0 +1,38 @@
+{
+    // BACKEND ONLY CONFIG
+    "reqLimit":"1mb", // Request Limit. Avoid abuse
+    "port":7069, // Listen on port
+    
+    // Fixed float Api and Secret, used only for opencollective targets. 
+    // If you don't have a target pointing to opencollective you can ignore these fields
+    "fixedFloatApi":"",
+    "fixedFloatSecret":"",
+
+    "githubData":"/data/github",  // Writable path for github caches
+    "githubLogsRange":31, // Length of caches in days, everything that is older by this will be purged (should be left like this)
+    "githubGistConfigFileName":".split-donations.config.json", // Gist file containing user configuration (used in place of ln address in bio)
+
+    // Github auth data. Used to access teams data and increase rate limit.
+    // Can be either 
+    //    [USERID]:[PERSONALTOKEN]
+    // or
+    //    app:[APPID]:[OAUTH CLIENT ID]:[OAUTH CLIENT SECRET]:[PRIVATEKEY]
+    // or
+    //    app:[APPID]:[OAUTH CLIENT ID]:[OAUTH CLIENT SECRET]:file://[PRIVATEKEY_PATH]
+    "githubAuthData":"",
+    
+    
+    // Wait this number of ms from one request to the other. Avoid rate limit
+    "githubReqCooldown":1000,
+
+    // Path for frontend files. Should be left like this
+    "frontEndPath":"./frontend",
+
+    // Optional: list of targets or url to a json file containing the list of targets
+    // this should be used only if the backend needs to have a different list of targets
+    // or obtain a list of targets from a different url than the frontend, otherwise
+    // leave it commented and configure the targets only in config.json
+    //"targets":[  
+    //
+    //]
+}

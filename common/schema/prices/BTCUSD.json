@@ -1,0 +1,38 @@
+[
+    {
+        "?": "Get price of 1 BTC in USD",
+        "type": [
+            "request"
+        ]
+    },
+    {
+        "?": "The decoded invoice",
+        "type": [
+            "response"
+        ],
+        "message": {
+            "?": "Infos regarding the service",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false
+            }
+        },
+        
+        "value": {
+            "?": "Value in USD",
+            "type": "number",
+            "required": true,
+            "min": 0
+        },
+        "error": {
+            "?": "An error. Empty = no error",
+            "type": "string",
+            "required": false,
+            "sanitize": {
+                "html": false
+            }
+        }
+      
+    }
+]

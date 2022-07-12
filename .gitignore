@@ -1,0 +1,11 @@
+!config/config.jsonc.template
+!config/backend.jsonc.template
+.env
+node_modules
+config/*.jsonc
+*.req
+x.git
+xx.git
+db
+test_environment
+*.pem

@@ -1,0 +1,81 @@
+[
+    {
+        "?": "Generate an invoice",
+        "type": [
+            "request"
+        ],
+        "addr": {
+            "?": "Lightning address or LNURL",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "sats": {
+            "?": "Amount in satoshis",
+            "type": "number",
+            "required": true,
+            "min": 0
+        },
+        "comment": {
+            "?": "A comment or memo to attach to the payment",
+            "type": "string",
+            "required": false,
+            "sanitize": {
+                "html": false
+            }
+        }
+    },
+    {
+        "?": "The generated invoice",
+        "type": [
+            "response"
+        ],
+        "invoice": {
+            "?": "The lightning invoice",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "payHash": {
+            "?": "Hash of this transaction",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "sats": {
+            "?": "Amount in Satoshis",
+            "type": "number",
+            "required": true,
+            "min": 0
+        },
+        "timestamp": {
+            "?": "Timestamp in ms",
+            "type": "number",
+            "required": true,
+            "min": 0
+        },
+        "expiry": {
+            "?": "",
+            "type": "number",
+            "required": true,
+            "min": 0
+        },
+        "error": {
+            "?": "An error. Empty = no error",
+            "type": "string",
+            "required": false,
+            "sanitize": {
+                "html": false
+            }
+        }
+    }
+]

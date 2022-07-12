@@ -1,0 +1,52 @@
+[
+    {
+        "?": "Get payable top contirbutors",
+        "type": [
+            "request"
+        ],
+        "org": {
+            "?": "Github organization",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "repo": {
+            "?": "Team id",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "daysRange": {
+            "?": "Range in days to calculate top contributors (from today)",
+            "type": "number",
+            "required": false
+        }
+    },
+    {
+        "?": "List of payable contributors",
+        "type": [
+            "response"
+        ],
+        "members": {
+            "?": "List of payable contributors",
+            "type": "custom-array",
+            "template":"github/contributor",
+            "required": true
+         
+        },
+        "error": {
+            "?": "An error. Empty = no error",
+            "type": "string",
+            "required": false,
+            "sanitize": {
+                "html": false
+            }
+        }
+    }
+]

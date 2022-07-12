@@ -1,0 +1,105 @@
+[
+    {
+        "?": "Create lightning invoice to bridge to another coin",
+        "type": [
+            "request"
+        ],
+        "depositAddress": {
+            "?": "Address to bridge to",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "currency": {
+            "?": "Currency to bridge to",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9]+"
+            }
+        },
+        "amount": {
+            "?": "Required amount of destination currency",
+            "type": "number",
+            "required": true,
+            "min": 0
+        }
+    },
+    {
+        "?": "Response with the lightning invoice to bridge to the other currency",
+        "type": [
+            "response"
+        ],
+        "invoice": {
+            "?": "The lightning invoice",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "orderId": {
+            "?": "ID of this transaction",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "orderToken": {
+            "?": "Secure token of this transaction",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "currency": {
+            "?": "Bridged currency",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9]+"
+            }
+        },
+        "depositAddress": {
+            "?": "Address that received the bridged amount",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "sats": {
+            "?": "Amount in Satoshis to pay",
+            "type": "number",
+            "required": true,
+            "min": 0
+        },
+        "notice": {
+            "?": "An notice, explaining something important",
+            "type": "string",
+            "required": false,
+            "sanitize": {
+                "html": true
+            }
+        },
+        "error": {
+            "?": "An error. Empty = no error",
+            "type": "string",
+            "required": false,
+            "sanitize": {
+                "html": false
+            }
+        }
+    }
+]

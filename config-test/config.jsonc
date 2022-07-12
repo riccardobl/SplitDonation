@@ -1,0 +1,36 @@
+{
+    "devmode":true,
+    "lndhub":"http://localhost:7071",
+    "fee":1.3,
+
+    "ocRouteSlippage":0.5,
+    "defaultAmountSats":30000,
+    "minimumAmountSats":"3383",
+    "minSatsPerTarget":100,
+    "defaultCurrency":"USD",
+    "schemaPath":"common/schema",
+    "issueReportUrl":"https://github.com/riccardobl/SplitDonations/issues/new?labels=bug&title=Issue%20report&body=%BODY%%0A%0A%23%23%23%20Anonimized%20invoice%0A%60%60%60json%0A%INVOICE%%0A%60%60%60",
+    "targets":[
+        {
+            "type":"lightning-address",
+            "addr":"pay@carol-lnsplitpay.test",
+            "description":"Carol",
+            "weight":0.5
+        },
+        {
+            "type":"lightning-address",
+            "addr":"pay@erin-lnsplitpay.test",
+            "description":"Bob",
+            "weight":0.5
+        },
+        {
+            "type":"lightning-address",
+            "addr":"pay@alice-lnsplitpay.test",
+            "description":"Alice",
+            "weight":0.2
+        }
+   
+   
+  
+    ]
+}

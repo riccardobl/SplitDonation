@@ -1,0 +1,13 @@
+{
+    "reqLimit":"1mb",
+    "port":7069,
+    "fixedFloatApi":"",
+    "fixedFloatSecret":"",
+    "githubData":"./test_environment/data/github",
+    "githubLogsRange":31,
+    "githubGistConfigFileName":".test-dodj39.json",
+    "githubAuthData":""   ,
+    "githubReqCooldown":1000,
+    "autoRefreshGithubReposIntervalSeconds":"7200",
+    "frontEndPath":"./frontend"
+}

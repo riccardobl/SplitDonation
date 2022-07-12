@@ -1,0 +1,636 @@
+/**
+* TODO: this stil was imported from another project. Needs cleanup
+*/
+@import "/fontawesome/css/all.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Mingzat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mingzat&family=Raleway:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+@font-face {
+    font-family: pt mono;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/ptmono/v13/9oRONYoBnWILk-9AnC8zNg.ttf) format('truetype')
+}
+
+@font-face {
+    font-family: ubuntu;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgo6eA.ttf) format('truetype')
+}
+
+
+
+:root {
+    --foreground: #dfdfdf;
+    --foreground2: #b8b8b8;
+    --highlightFg: #ffbb00;
+    --highlightFg2: #ffe292;
+    --background: #222222;
+    --background2: #1b1b1b;
+    --background3: #141414;
+    --background4: #252525;
+    --twitter: #1DA1F2;
+    --buttonColor: #2f2f2f;
+    --buttonColorFg: var(--foreground);
+    --docsColor: #0c5858;
+    --docsColorFg: var(--foreground);
+    --bugsColor: #680404;
+    --bugsColorFg: var(--foreground);
+    --codeColor: #6d003f;
+    --codeColorFg: var(--foreground);
+    --discordColor: #44013b;
+    --discordColorFg: var(--foreground);
+    --storeColor: #686602;
+    --storeColorFg: var(--foreground);
+    --donateColor: #8cc800;
+    --donateColorFg: #212700;
+    --itchColor: #b11f38;
+    --itchColorFg: var(--foreground);
+    --youtubeColor: #c4302b;
+    --youtubeColorFg: var(--foreground);
+    --twitterColor: #1475b1;
+    --twitterColorFg: var(--foreground);
+    --highlightedColor: #ffbb00;
+    --highlightedColorFg: #242424;
+    --textShadowColor: var(--background3);
+    --boxShadowColor: var(--background2)
+}
+
+img {
+    max-width: 100%
+}
+
+
+* {
+    box-sizing: border-box !important;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+
+
+
+
+body {
+    line-height: 115%;
+
+    text-align: center;
+    overflow-x: hidden;
+    font-family: 'ubuntu', sans-serif; 
+    /* font-family: 'Raleway', sans-serif;      */
+    /* font-family: 'Titillium Web', sans-serif; */
+    font-family: 'Mingzat', sans-serif;
+    /* font-family: 'Cairo', sans-serif; */
+    background: var(--background) !important;
+    color: var(--foreground) !important;
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    padding-top:1rem;
+}
+
+
+body, table,td ,th ,tr{
+    font-size: 1.0rem;
+    word-wrap: break-word;
+    white-space: normal;
+    text-shadow: 0 0 .1rem var(--textShadowColor), 0 0 .1rem var(--textShadowColor), 0 0 .1rem var(--textShadowColor), 0 0 .1rem var(--textShadowColor), 0 0 .1rem var(--textShadowColor), 0 0 .1rem var(--textShadowColor), 0 0 .1rem var(--textShadowColor), 0 0 .1rem var(--textShadowColor), 0 0 .1rem var(--textShadowColor)
+
+}
+
+
+body>footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: .8rem;
+    color: var(--foreground2);
+    margin-bottom: 1rem
+}
+
+
+
+
+ul {
+    padding: .5rem
+}
+
+ul,
+li {
+    text-decoration: none;
+    appearance: none;
+    list-style-type: none;
+    padding-left: .5rem;
+    margin: 0
+}
+
+li {
+    margin-top: .1rem
+}
+
+
+
+
+
+button {
+    all: unset;
+    appearance: none;
+    background-color: var(--background2) !important;
+    border: .1rem solid var(--background3) !important;
+    border-radius: .3rem;
+    color: var(--highlightFg);
+    padding: .3rem;
+    text-decoration: none;
+    margin: .3rem;
+    display: inline-block;
+    padding: .6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
+    text-shadow: none;
+    font-weight: bolder !important;
+    background: var(--buttonColor) !important;
+    color: var(--buttonColorFg) !important;
+    font-weight: 700;
+    box-shadow: 0 0 .8rem .3rem var(--boxShadowColor)
+}
+
+button a {
+    text-decoration: none !important
+}
+
+button:hover {
+    filter: brightness(130%)
+}
+
+
+a,
+a:hover,
+a:visited {
+    color: inherit;
+    text-decoration: inherit;
+    color: var(--highlightFg)
+}
+
+a:hover {
+    filter:brightness(120%);
+}
+
+
+h1 {
+    font-size: 2rem;
+    font-size: 2.3rem
+}
+
+h2 {
+    font-size: 1.5rem
+}
+
+
+h3 {
+    font-size: 1.3rem
+}
+
+
+h2,
+h1,
+h3 {
+    margin: 0;
+    padding: 0;
+    margin: 0.2rem;
+    color: var(--highlightFg);
+    text-transform: uppercase;
+    line-height: 120%;
+}
+
+
+
+
+
+.genericCl {
+    background: var(--buttonColor) !important;
+    color: var(--buttonColorFg) !important;
+    font-weight: 700
+}
+
+.highlightedCl {
+    background: var(--buttonColor) !important;
+    color: var(--buttonColorFg) !important;
+    font-weight: 700;
+    background: var(--highlightedColor) !important;
+    color: var(--highlightedColorFg) !important
+}
+
+
+
+
+
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.payTarget {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+
+}
+
+.payTarget>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: stretch;
+    width: 100%;
+    margin: 1rem;
+}
+
+.payTarget>div>* {
+    margin: 1rem;
+}
+
+.payTarget>div>input[type=range] {
+    flex-grow: 1;
+}
+
+
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 0.8rem;
+    background: var(--buttonColor);
+    outline: none;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 2.8rem;
+    width: 1.2rem;
+    border-radius: .3rem;
+    background: var(--highlightedColor);
+    box-shadow: 0 0 .8rem .3rem var(--boxShadowColor);
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 2.8rem;
+    width: 1.2rem;
+    border-radius: .3rem;
+    background: var(--highlightedColor);
+    box-shadow: 0 0 .8rem .3rem var(--boxShadowColor);
+}
+
+input[type=range]::-ms-thumb {
+    height: 2.8rem;
+    width: 1.2rem;
+    border-radius: .3rem;
+    background: var(--highlightedColor);
+    box-shadow: 0 0 .8rem .3rem var(--boxShadowColor);
+}
+
+.bigButton {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 1rem;
+}
+
+
+
+
+
+
+.currencySelector {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    /* font-size: 0.8rem; */
+
+}
+
+.currencySelector>* {
+    margin: 0.04rem;
+    
+}
+
+
+
+.currencySelector>input[type=number] {
+    font-size: 1.8rem;
+    padding: 0.1rem;
+    flex-grow: 1;
+    max-width:60%;
+    text-align: center;
+}
+@media only screen and (max-width: 700px) {
+    .currencySelector {
+        flex-direction: column;
+    }
+    .currencySelector>input[type=number] {
+     
+        max-width:100%;
+    }
+}
+
+input[type=number],
+input[type=text],
+textarea {
+
+    background: var(--background4);
+    border: 0.1rem solid var(--background2);
+    border-radius: 0.2rem;
+    padding: 0.7rem;
+    color: var(--highlightedColor);
+    text-align: left;
+    font-weight: bold;
+    font-family: ubuntu;
+    margin-right: 0.2rem;
+    max-width: 100%;
+
+}
+
+
+button > i:first-child{
+    margin-right:0.6rem;
+}
+
+
+.currencySelector>*.selected {
+    background: var(--highlightedColor);
+}
+
+
+button.selected {
+    background: var(--highlightedColor) !important;
+    color: var(--background2) !important;
+}
+
+.warn,.sub {
+    display: block;
+    padding: 1rem;
+    font-size: .8rem;
+    
+    font-style: italic;
+}
+
+
+hr {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    all: unset;
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+    border-top: 0.4rem dotted var(--background3);
+
+}
+
+.welcome {
+    flex-direction: column;
+    display: flex;
+}
+
+.wallets {
+    text-align: left;
+    align-self: flex-end;
+    width:auto;
+}
+
+#fundingInvoice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#fundingInvoice input {
+    padding: 1rem;
+    font-size: 0.8rem;
+    display: block;
+    font-family: pt mono;
+    width: 90%;
+    margin: 1rem;
+}
+
+#fundingInvoice .qrcontainer {
+    max-width: 80%;
+    width:auto;
+}
+
+.qrcontainer {
+    box-shadow: 0 0 .8rem .3rem var(--boxShadowColor);
+    background: #fff;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    text-align: center;
+    display: inline-block;
+}
+
+#invoiceList {
+    width: 100%;
+    text-align: left;
+    word-break:break-all;
+}
+
+div {
+    width: 100%;
+    position: relative;
+    box-sizing: border-box !important;
+}
+
+div#content,
+div#welcome {
+    width: 98%;
+    display: flex;
+    max-width: 700px;
+    position: relative;
+    box-sizing: border-box !important;
+    flex-direction: column;
+
+}
+
+th {
+    padding: 0.8rem;
+
+}
+
+td {
+    border-radius: 0.3rem;
+    margin: 0.2rem;
+    padding: 0.8rem;
+
+}
+
+td>input {
+    width: 100%;
+}
+
+tr {
+    border-radius: 0.3rem;
+
+    background: var(--background2);
+}
+
+tr:nth-child(odd) {
+    background: var(--background1);
+}
+
+table tr td:first-child {}
+
+table {
+    line-height: 120%;
+    margin: auto;
+    margin-top: 0.9rem;
+    margin-bottom: 0.9rem;
+    text-align: center;
+    width: 100%;
+    border: 0.2rem solid var(--background2);
+    border-radius: 0.6rem;
+}
+
+textarea {
+    width: 100%;
+    height: 9rem;
+    text-align: left;
+    padding: 1rem;
+}
+
+
+
+#tasks{
+    max-height: 90vh;
+    overflow-y: auto;
+    position:fixed;
+    opacity: 0.99;
+    margin:auto;
+    bottom:2vh;
+    max-width: 700px;
+    width:100vw;
+    min-height: 0;
+    margin:0;
+    padding:0;
+    font-size:0.99rem;
+    z-index:999;
+}
+
+#tasks li{
+      box-shadow: 0 0 .6rem .1rem var(--background3);
+
+    margin:2vh;
+    border-radius:0.3rem;
+    background:var(--background3);
+    padding:2vh;
+
+}
+@keyframes pulsatingBoxShadow {
+  0% {
+      box-shadow: 0 0 .2rem .1rem var(--background2);
+  }
+
+  50% {
+      box-shadow: 0 0 .2rem .1rem var(--highlightedColor);
+  }
+  100% {
+      box-shadow: 0 0 .2rem .1rem var(--background2);
+  }
+
+}
+#tasks li > .buttons{
+    margin-top:1rem;
+    display: flex;
+    flex-direction: column;
+}
+#tasks li > .buttons > button{
+    flex-grow: 1;
+    width:auto;
+}
+
+#tasks li.important{
+  animation-timing-function:ease-in-out;
+  animation-iteration-count: infinite;
+  animation-name: pulsatingBoxShadow;
+  animation-duration: 2s;
+
+}
+#tasks li i{
+    padding:0;
+    margin-right:1vh;
+}
+
+.list {
+    display:flex;
+}
+.hlist{
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.hlist > *{
+    padding:1rem;
+    /* border-left: 0.4rem dotted var(--background3); */
+    flex-grow: 1;
+}
+.hlist > *:first-child{
+    border:none;
+
+}
+
+.vlist{
+    flex-direction: column;
+}
+sub { 
+    display:inline-block;
+    font-size: 50%;
+
+    font-style: italic;
+
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.clickable:hover{
+    filter:brightness(120%);
+}
+
+#title{
+    margin-bottom:1rem;
+}
+#subtitle{
+    margin-bottom:2rem;
+}
+
+.controls table{
+    text-align: left;
+}

@@ -1,0 +1,54 @@
+[
+    {
+        "?": "Figure out the bridge output amount for the given input",
+        "type": [
+            "request"
+        ],
+ 
+        "currency": {
+            "?": "Currency to bridge to",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9]+"
+            }
+        },
+        "amount": {
+            "?": "Required amount of sats to convert",
+            "type": "number",
+            "required": true,
+            "min": 0
+        }
+    },
+    {
+        "?": "The amount that will be bridged",
+        "type": [
+            "response"
+        ],
+        "currency": {
+            "?": "Bridged currency",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9]+"
+            }
+        },
+
+        "amount": {
+            "?": "Amount in the bridge currency",
+            "type": "number",
+            "required": true,
+            "min": 0
+        },
+        "error": {
+            "?": "An error. Empty = no error",
+            "type": "string",
+            "required": false,
+            "sanitize": {
+                "html": false
+            }
+        }
+    }
+]

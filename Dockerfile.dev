@@ -1,0 +1,23 @@
+FROM node:16
+
+ENV CONFIG=''
+ENV BACKEND_CONFIG=''
+ENV CONFIG_PATH=''
+ENV DEV="1"
+
+
+RUN mkdir -p /app/
+RUN mkdir -p /data/
+WORKDIR /app
+
+COPY package.json  /app/package.json
+COPY package-lock.json  /app/package-lock.json
+COPY start.sh  /app/start.sh
+RUN cd /app&&npm ci --only=production
+
+RUN chown 1000:1000 -Rf /app
+RUN chown 1000:1000 -Rf /data
+
+USER node
+
+CMD [ "bash", "/app/start.sh" ]

@@ -1,0 +1,41 @@
+[
+    {
+        "?": "A contributor",
+        "type": [
+            "response","request"
+        ],
+        "addr": {
+            "?": "Lightning address or LNURL",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "name": {
+            "?": "Name of the contributor",
+            "type": "string",
+            "required": true,
+            "sanitize": {
+                "html": false,
+                "filter": "[A-Za-z0-9_\\.@\\(\\)\\-]+"
+            }
+        },
+        "contributions": {
+            "?": "Number of contributions",
+            "type": "number",
+            "required": true,
+            "min": 0,
+            "value":0
+        },
+        "error": {
+            "?": "An error. Empty = no error",
+            "type": "string",
+            "required": false,
+            "sanitize": {
+                "html": false
+            }
+        }
+    }
+]

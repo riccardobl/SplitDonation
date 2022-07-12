@@ -1,0 +1,10 @@
+config
+.env
+node_modules
+config/*.jsonc
+*.req
+x.git
+xx.git
+db
+test_environment
+*.pem

@@ -1,0 +1,21 @@
+{
+    // SHARED FRONTEND AND BACKEND CONFIG
+    "lndhub":"https://ln.getalby.com", // LND backend used for temporary account. The donor will be able to specify its own
+    "fee":1.3,  // Reserve to cover all the transaction fees
+    "title":"⚡plit Donation<sub>alpha</sub>", // Title of the page (supports html)
+    "titleHeader":"⚡plit Donation", // Title of the page show in the browser tab (no html)    
+    //"intro":"", // text to show at the top of the page, leave it commented to use the default
+    "ocRouteSlippage":0.5, // Additional slippage for open collective exchange bridge 
+    "defaultAmountSats":30000, // Default amount of satoshi 
+    "minimumAmountSats":"3383", // Donations below this range are rejected. (Should be enought to at least cover fees)
+    "minSatsPerTarget":100, // Donations below this amount will be automatically set to 0. (Should be enought to at least cover fees)
+    "defaultCurrency":"SATS", // Default currency (valid values: USD BTC SATS)
+    "schemaPath":"common/schema", // Path of the schema to validate api calls (You shouldn't change this, normally)
+    // Url to report issues, change this if you are forking the project. %BODY% will be replaced with the user inputted description of the issue
+    // %INVOICE%  will be replaced with an anonimized invoice
+    "issueReportUrl":"https://github.com/riccardobl/SplitDonations/issues/new?labels=bug&title=Issue%20report&body=%BODY%%0A%0A%23%23%23%20Anonimized%20invoice%0A%60%60%60json%0A%INVOICE%%0A%60%60%60", 
+    "reduceTargets":true, // Merged targets with the same address (this will make donations faster)
+    "targets":[  // List of targets or url to a JSON file containing a list of targets, see the README
+       
+    ]
+}
