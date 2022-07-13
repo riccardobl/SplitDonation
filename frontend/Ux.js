@@ -33,6 +33,19 @@ export default class Ux {
         }
 
         
+        
+
+        
+    }
+
+    static async scrollToTop(){
+        const query=Ux.getQuery();
+        window.scrollTo(0, 0);  
+        if(query.embedded){
+            parent.postMessage(JSON.stringify({
+                name:"split-donation-scrollToTop"
+            }),"*");  
+        }
     }
     
     static async getConfig(){
@@ -112,6 +125,7 @@ export default class Ux {
   
 
     static async showStage(id, config, payData) {
+        this.scrollToTop();
         try {
             if (!config) {
                 config = await this.getConfig();
