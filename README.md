@@ -212,7 +212,7 @@ Since OpenCollective doesn't support lightning at the moment,this is done throug
 }
 ```
 
-## Optional: Replace the "unspent fees" target
+### Optional: Replace the "unspent fees" target
 For each donation made through ⚡plit Donation, a conservative fee reserve is allocated to pay for routing and (when needed) exchange fees.
 Donors have an option to withdraw the unspent reserve after each donation or to send it to a predefined lightning address.
 By default this address is hardcoded and associated with this project as a sort of dev fee, however you are free to replace it with your own if you wish so. The address to look for is `rblb@getalby.com`.
