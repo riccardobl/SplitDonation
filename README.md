@@ -300,6 +300,6 @@ DEV=1 ./docker-start.sh
 
 ## Donate to this project
 You can support this project through 
-- Bitcoin⚡: `rblb@getalby.com`
+- Bitcoin⚡ (Lightning Address): `rblb@getalby.com`
 - Bitcoin: `bc1qdgugzpdvdvlme38zt7zt7jjh42htzu0txq8m9x`
 - [Github Sponsor](https://github.com/sponsors/riccardobl)
