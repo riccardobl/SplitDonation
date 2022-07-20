@@ -121,6 +121,7 @@ export default class PaymentManager {
     static async _expandTargets(targets){
         const outputTargets=[];
         for(const target of targets){
+            if(!target.sats)continue;
             if(target.type=="lightning-address"||target.type=="opencollective"){
                 // target.invoice=await this.generateInvoice(target.addr,target.sats,config.donationComment);
                 outputTargets.push(target);
@@ -247,30 +248,36 @@ export default class PaymentManager {
         }
 
         for(const target of data.targets){
+            if(typeof target.enabled!="undefined"&&!target.enabled){
+                target.weight=0;
+                continue;
+            }
             if(!target.weight)target.weight=0;
             if(target.weight<target.computedMinWeight)target.weight=0;
         }
         
         let weightSum=0;
         for(let target of data.targets){
-            weightSum+=typeof target.weight === "undefined"?1:target.weight;
+            weightSum+=target.weight;
         }       
             
         
         for(const target of data.targets){
-            target.weight=Math.floor(target.weight/weightSum*1000)/1000;
+            if(!target.weight)continue;
+            target.weight=Math.floor((target.weight/weightSum)*1000)/1000;
         }
 
         weightSum=0;
         for(let target of data.targets){
-            weightSum+=typeof target.weight === "undefined"?1:target.weight;
+            weightSum+=target.weight;
         }      
-        if(weightSum<0.98)throw "Invalid weight sum "+weightSum+" but ~1 was expected" ;
+        if(weightSum<0.98||weightSum>1)throw "Invalid weight sum "+weightSum+" but ~1 was expected" ;
             
 
          // Calculate sats per target
          for(const target of data.targets){
-            target.sats=Math.floor(totalSats*target.weight);
+            if(!target.weight)target.sats=0;
+            else target.sats=Math.floor(totalSats*target.weight);
             target.status={
                 code:2,
                 desc:"waiting"
@@ -280,17 +287,21 @@ export default class PaymentManager {
 
     }
 
-    static async prepare(data){            
-        await this.resolveWeights(data);
-
-       
+    static async prepare(data){       
+      
         // Expand targets
         data.targets=await this._expandTargets(data.targets);
+
+        await this.resolveWeights(data);
+
+      
+
 
         if(this.config.reduceTargets){
             // Reduce targets
             data.targets=await this._reduceTargets(data.targets);
         }
+
         // Generate invoices
         data.targets=await this._generateInvoices(this.config,data.lndhub||this.config.lndhub,data.targets,data.email,data.donorName,data.message);
 

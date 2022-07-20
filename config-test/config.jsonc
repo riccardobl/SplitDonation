@@ -27,7 +27,8 @@
             "type":"lightning-address",
             "addr":"pay@alice-lnsplitpay.test",
             "description":"Alice",
-            "weight":0.2
+            "weight":0.2,
+            "enabled":false
         }
    
    
