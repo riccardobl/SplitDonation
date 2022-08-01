@@ -38,18 +38,19 @@ export default class Stage1 {
         }, 4000);
 
 
+        let preparedPayData=Utils.clone(payData);
         try {
             clearInterval(this.loadingTextInt);
-            await PaymentManager.prepare(payData);
+            await PaymentManager.prepare(preparedPayData);
             let totalSats = 0;
-            for (const target of payData.targets) {
+            for (const target of preparedPayData.targets) {
                 totalSats += target.sats;
             }
-            if (totalSats > payData.sats) {
-                return Tasks.error("input-invalid","Error. The summatory of each target paid amount exceed the total amount. " + totalSats + " but " + payData.sats + " is expected.");
+            if (totalSats > preparedPayData.sats) {
+                return Tasks.error("input-invalid","Error. The summatory of each target paid amount exceed the total amount. " + totalSats + " but " + preparedPayData.sats + " is expected.");
             } else {
-                await PaymentManager.start(payData);
-                await Ux.showStage(2, config, payData);
+                await PaymentManager.start(preparedPayData);
+                await Ux.showStage(2, config, preparedPayData);
                 Tasks.ok("loadingStage1");
 
             }
