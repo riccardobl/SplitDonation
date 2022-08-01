@@ -144,12 +144,12 @@ export default class Stage0 {
         const inputValueEl=inputValueContainerEl.querySelector(".currencySelector input[type=number]");
         inputValueEl.value=payData.sats;
         inputValueEl.addEventListener("input",async ()=>{
-            payData.sats=await toSatsFunction(new Number(inputValueEl.value));
             const min=inputValueEl.getAttribute("min");
             if(inputValueEl.value<new Number(min)){
                 inputValueEl.setCustomValidity("Minimum value: "+min);
                 inputValueEl.reportValidity();
             }else{
+                payData.sats=await toSatsFunction(new Number(inputValueEl.value));
                 inputValueEl.setCustomValidity('');
                 inputValueEl.reportValidity();
             }
@@ -300,7 +300,10 @@ export default class Stage0 {
         
 
         inputValueEl.addEventListener("input",async ()=>{
+            const min=inputValueEl.getAttribute("min");
+            if(inputValueEl.value<new Number(min))return;
             if(this.timedUpdate)clearTimeout(this.timedUpdate);
+            
             this.timedUpdate=setTimeout(()=>{              
                  updateSliders();
             },100);
