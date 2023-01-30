@@ -75,7 +75,7 @@ export default class PaymentManager {
         let savedAccess=this.savedAccess[user+":"+password];
         if(savedAccess&&((Date.now()-savedAccess.time)>1000*60*5))savedAccess=undefined;
         if(!savedAccess){
-            const _performAuth = async (retry) => this._call(lndhub,`auth`, {
+            const _performAuth = async (retry) => this._call(lndhub,`auth?type=auth`, {
                 "login": user,
                 "password": password
             },"","POST",retry);
@@ -85,6 +85,8 @@ export default class PaymentManager {
                 resp = await _performAuth(1);
             } catch (e) {
                 const newUser=await this._call(lndhub,`create`, {
+                    partnerid: this.config.lndhub_partnerId,
+                    accounttype: this.config.lndhub_accounttype,
                     login: user,
                     password: password
                 });
