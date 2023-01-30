@@ -15,7 +15,7 @@
     "schemaPath":"common/schema", // Path of the schema to validate api calls (You shouldn't change this, normally)
     // Url to report issues, change this if you are forking the project. %BODY% will be replaced with the user inputted description of the issue
     // %INVOICE%  will be replaced with an anonimized invoice
-    "issueReportUrl":"https://github.com/riccardobl/SplitDonations/issues/new?labels=bug&title=Issue%20report&body=%BODY%%0A%0A%23%23%23%20Anonimized%20invoice%0A%60%60%60json%0A%INVOICE%%0A%60%60%60", 
+    "issueReportUrl":"https://github.com/riccardobl/SplitDonation/issues/new?labels=bug&title=Issue%20report&body=%BODY%%0A%0A%23%23%23%20Anonimized%20invoice%0A%60%60%60json%0A%INVOICE%%0A%60%60%60", 
     "reduceTargets":true, // Merged targets with the same address (this will make donations faster)
     "targets":[  // List of targets or url to a JSON file containing a list of targets, see the README
        
