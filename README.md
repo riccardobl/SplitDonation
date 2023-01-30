@@ -83,7 +83,8 @@ Once you have obtained a lightning address or LNURL, the quickest way to add it 
 
 As a project maintainer you can host your instance of ⚡plit Donation following these steps.
 
-You will need an host running [docker](https://www.docker.com/) and a remote [LNDHub](https://lndhub.io/) instance with CORS enabled ( by default we use https://ln.getalby.com , the donor can chose to use its own ).
+You will need an host running [docker](https://www.docker.com/) and a remote [LNDHub](https://lndhub.io/) instance with CORS enabled ( by default we use https://ln.getalby.com , the donor can chose to use its own ). 
+By default the code uses a cloudflare worker at https://lnhub.rblb.workers.dev that is a proxy to https://lndhub.io with CORS enabled, if you intend to use this setup, please run your own worker (see [code](scripts/lndhub-cors-proxy-cloudflare-worker.js)).
 
 To run an instance you need to
 
