@@ -62,10 +62,14 @@ export default class Stage2 {
             Utils.download(JSON.stringify(payData,null, 2),"invoice"+Date.now()+".json","application/json");
         });
         
-        this.stageEl.querySelector("#changelndhub").addEventListener("click",()=>{
+        this.stageEl.querySelector("#changelndhub").addEventListener("click",async ()=>{
             let lndhubUrl = prompt("Please enter the URL of the LNDHub instance. Note: the resource needs to allow CORS requests.", payData.lndhub);
             if(lndhubUrl){
                 payData.lndhub=lndhubUrl;
+                payData.user=undefined;
+                payData.payHash=undefined;
+                payData.password=undefined;
+                await Ux.showStage(1,config,payData);
                 Tasks.ok("lndhub","LNDHub url updated. Please download the invoice again.");
             }
         });
