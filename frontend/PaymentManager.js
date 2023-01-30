@@ -84,10 +84,13 @@ export default class PaymentManager {
             try {
                 resp = await _performAuth(1);
             } catch (e) {
-                await this._call(lndhub,`create`, {
+                const newUser=await this._call(lndhub,`create`, {
                     login: user,
                     password: password
                 });
+                if(newUser.error)throw newUser.error;
+                user=newUser.login||user;
+                password=newUser.password||password;                
                 resp = await _performAuth(10);
             }
             
@@ -97,7 +100,11 @@ export default class PaymentManager {
             }
             this.savedAccess[user+":"+password]=savedAccess;
         }
-        return savedAccess.token;
+        return {
+            user:user,
+            password:password,
+            access_token:savedAccess.token
+        };
     }
 
     static async decodeInvoice(invoice,sats){
@@ -321,7 +328,10 @@ export default class PaymentManager {
         }
 
     
-        const access_token = await this._auth(data.lndhub||this.config.lndhub,data.user, data.password);
+        const {user,password,access_token} = await this._auth(data.lndhub||this.config.lndhub,data.user, data.password);
+        data.user=user;
+        data.password=password;
+        console.info("Obtained user and password",  data.user ,  data.password);
 
         let resp = await this._call(data.lndhub||this.config.lndhub,"addinvoice", {
             "amt": data.sats
@@ -337,7 +347,7 @@ export default class PaymentManager {
 
 
     static async process( data) {
-        const access_token = await this._auth(data.lndhub||this.config.lndhub,data.user, data.password);
+        const {user,password,access_token} = await this._auth(data.lndhub||this.config.lndhub,data.user, data.password);
 
         const isPaid = (await this._call(data.lndhub||this.config.lndhub,"checkpayment/" + data.payHash, 
         "", access_token, "GET")).paid;
@@ -423,12 +433,12 @@ export default class PaymentManager {
 
 
     static async getBalance(data){
-        const access_token=await this._auth(data.lndhub||this.config.lndhub,data.user,data.password);
+        const {user,password,access_token}=await this._auth(data.lndhub||this.config.lndhub,data.user,data.password);
         return Sane.int((await this._call(data.lndhub||this.config.lndhub,"balance",undefined,access_token,"GET")).BTC.AvailableBalance);
     }
 
     static async withdraw(data,invoice){
-        const access_token=await this._auth(data.lndhub||this.config.lndhub,data.user,data.password);
+        const {user,password,access_token}=await this._auth(data.lndhub||this.config.lndhub,data.user,data.password);
         return await this._call(data.lndhub||this.config.lndhub,"payinvoice",{
             invoice:invoice
         },access_token,"POST");
